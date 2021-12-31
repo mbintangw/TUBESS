@@ -30,6 +30,15 @@ app.post('/users', (req, res) => {
     res.json({status: 200, message: 'Berhasil', data: null});
   });
 });
+//Buat baca login
+app.get('/users', (req, res) => {
+  let sql ="SELECT * FROM users";
+
+  db.query(sql, (err, result) => {
+    if (err) throw err;
+    res.json({status: 200, message: 'Berhasil', data: null});
+  });
+});
 
 app.post('/post', (req, res) => {
   let sql =
@@ -154,7 +163,7 @@ app.delete('/users/:id', (req, res) => {
   });
 });
 
-app.delete('/posts/id/:id', (req, res) => {
+app.delete('/post/id/:id', (req, res) => {
   let sql = "DELETE FROM posts WHERE post_id='" + req.params.id + "'";
   db.query(sql, (err, results) => {
     if (err) throw err;

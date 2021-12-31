@@ -37,22 +37,21 @@ export const PostDetail = ({ route, navigation }) => {
         }, []);
 
         return (
-            <View style={{ flex: 1, padding: 4, backgroundColor: '#E2E2E2' }}>
+            <View style={{ flex: 1, padding: 4, backgroundColor: '#1A374D' }}>
             {
             data.map((item) => (
-            <View style={{backgroundColor: 'white', margin: 4, padding: 4}}>
+            <View style={{backgroundColor: '#EEF2FF', margin: 4, padding: 4}}>
                 <View style={{flexDirection:'row'}}>
                     <View>
-                        <Image source={{uri:'http://10.0.2.2:3000/images/user.png'}}
-                        style={{width: 50, height: 50, resizeMode:'contain'}}/>
+                    <Image source={require ('../images/man.png')} style={{width: 50, height: 50, resizeMode:'contain'}}/>
                     </View>
                     <View style={{marginLeft: 10}}>
                         <Text style={{fontWeight:'bold', color:'black'}}>{item.username}</Text>
-                            <Text>{item.post_date}</Text>
+                            <Text>{item.post}</Text>
                     </View>
                 </View>
                 <View>
-                    <Text>{item.post}</Text>
+                    <Text style={{fontSize:12}}>{item.post_date}</Text>
                 </View>
             </View>
         ))}

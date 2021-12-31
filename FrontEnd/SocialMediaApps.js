@@ -12,7 +12,19 @@ const Stack = createNativeStackNavigator();
 const AppHome = () => {
     return (
       <NavigationContainer>
-        <Stack.Navigator>
+        <Stack.Navigator initialRouteName= "Login" screenOptions = {{
+                    headerShown:false
+                }}>
+        <Stack.Screen
+            name="Login"
+            component={Login}
+
+          />
+          <Stack.Screen
+            name="Register"
+            component={Register}
+            options={{title: 'Register'}}
+          />
           <Stack.Screen
             name="PostList"
             component={PostList}
@@ -34,16 +46,7 @@ const AppHome = () => {
             options={{title: 'Edit Post'}}
           />
          
-          <Stack.Screen
-            name="Login"
-            component={Login}
-            options={{title: 'Login'}}
-          />
-          <Stack.Screen
-            name="Register"
-            component={Register}
-            options={{title: 'Register'}}
-          />
+
           
         </Stack.Navigator>
       </NavigationContainer>

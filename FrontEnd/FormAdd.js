@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { View, Text, Button, StyleSheet, TextInput, Alert } from 'react-native';
 
 export const PostAdd = ({ route, navigation }) => {
-    const [username, setUsername] = useState("mbintangw");
+    const [username, setUsername] = useState("namagua");
     const [textInputPost, setTextInputPost] = useState("");
     
     const saveData = async () => {
@@ -15,7 +15,7 @@ export const PostAdd = ({ route, navigation }) => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                username: 'mbintangw',
+                username: username,
                 post: textInputPost
             })
     });

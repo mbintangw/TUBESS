@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { useEffect, useState } from 'react';
-import { View, Text, Button, StyleSheet, TextInput, Image } from 'react-native';
+import { View, Text, Button, StyleSheet, TextInput, ScrollView,Image } from 'react-native';
+import { back } from 'react-native/Libraries/Animated/Easing';
 
 export const PostEdit = ({ route, navigation }) => {
     const { itemId } = route.params;
@@ -47,14 +48,14 @@ export const PostEdit = ({ route, navigation }) => {
         getData();
     }, []);
     return (
-        <View style={{ flex: 1, padding: 4, backgroundColor: '#E2E2E2' }}>
+        <ScrollView style={{backgroundColor : '#EEF2FF'}}>
+        <View style={{ flex: 1, padding: 4, backgroundColor: '#EEF2FF' }}>
             {
             data.map((item) => (
-            <View style={{backgroundColor: 'white', margin: 4, padding: 4}}>
-                <View style={{flexDirection:'row'}}>
+            <View style={{backgroundColor: '#EEF2FF', margin: 4, padding: 4}}>
+                <View style={{backgroundColor : '#EEF2FF',flexDirection:'row'}}>
                     <View>
-                        <Image source={{uri:'http://10.0.2.2:3000/images/user.png'}}
-                        style={{width: 50, height: 50, resizeMode:'contain'}}/>
+                    <Image source={require ('../images/man.png')} style={{width: 50, height: 50, resizeMode:'contain'}}/>
                     </View>
                     <View style={{marginLeft: 10}}>
                         <Text style={{fontWeight:'bold', color:'black'}}>{item.username}</Text>
@@ -72,6 +73,7 @@ export const PostEdit = ({ route, navigation }) => {
                 <Button title="update" onPress={() => updateData()} />
             </View>
         </View>
+        </ScrollView>
     );
 
 }
